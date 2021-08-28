@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./Directory.scss";
-import { Sections } from "../../util";
+import { SECTIONS_DATA } from "../../data/SECTIONS_DATA";
 import MenuItem from "../MenuItem/MenuItem";
 
 export default class Directory extends Component {
   state = {
-    sections: Sections,
+    sections: SECTIONS_DATA,
   };
   render() {
     const { sections } = this.state;
