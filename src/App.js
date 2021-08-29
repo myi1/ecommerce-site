@@ -27,6 +27,7 @@ export default class App extends Component {
           });
         });
       }
+      this.setState({ currentUser: userAuth });
     });
   }
 
@@ -35,9 +36,10 @@ export default class App extends Component {
   }
 
   render() {
+    const { currentUser } = this.state;
     return (
       <div className='App'>
-        <Header currentUser={this.state.currentUser} />
+        <Header currentUser={currentUser} />
         <Switch>
           <Route exact path='/' component={Homepage} />
           <Route path='/shop' component={ShopPage} />
