@@ -18,11 +18,11 @@ export default function Header({ currentUser }) {
           CONTACT
         </Link>
         {currentUser ? (
-          <div className='option' onClick={() => auth.signOut()}>
+          <div className='header__option' onClick={() => auth.signOut()}>
             SIGN OUT
           </div>
         ) : (
-          <Link classname='option' to='/signin'>
+          <Link className='header__option' to='/signin'>
             SIGN IN
           </Link>
         )}

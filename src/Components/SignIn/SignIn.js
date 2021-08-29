@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import FormInput from "../FormInput/FormInput";
-import {
-  signInWithGoogle,
-  auth,
-  provider,
-} from "../../firebase/firebase.utils";
-import "./SignIn.scss";
-// import { GoogleAuthProvider } from "firebase/auth";
+import { signInWithGoogle } from "../../firebase/firebase.utils";
 
-// const provider = new GoogleAuthProvider();
+import "./SignIn.scss";
 
 export default class SignIn extends Component {
   state = {
@@ -33,12 +27,13 @@ export default class SignIn extends Component {
         <h2>I already have an account</h2>
         <span>Sign in with your email and password</span>
 
-        <form onsubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <FormInput
             name='email'
             value={this.state.email}
             required
             label='email'
+            handleChange={this.handleChange}
           />
 
           <FormInput
@@ -52,9 +47,7 @@ export default class SignIn extends Component {
 
           <div className='buttons'>
             <CustomButton type='submit'>Sign In</CustomButton>
-            <CustomButton
-              onClick={() => signInWithGoogle(auth, provider)}
-              isGoogleSignIn>
+            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
               Sign In With Google
             </CustomButton>
           </div>
