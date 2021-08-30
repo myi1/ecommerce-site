@@ -8,9 +8,9 @@ export default function CollectionPreview({ title, items }) {
       <h1 className='collection-preview__title'>{title.toUpperCase()}</h1>
       <div className='collection-preview__preview'>
         {items
-          .filter((item, i) => i < 4)
-          .map(({ id, ...otherItemProps }) => (
-            <CollectionItem key={id} {...otherItemProps} />
+          .filter((_item, i) => i < 4)
+          .map((item) => (
+            <CollectionItem key={item.id} item={item} />
           ))}
       </div>
     </div>
