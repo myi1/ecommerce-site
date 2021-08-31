@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import {
   clearItemFromCart,
   addItem,
-  RemoveItem,
   removeItem,
 } from "../../redux/cart/cart.actions";
 
