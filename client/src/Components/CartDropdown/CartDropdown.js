@@ -1,18 +1,22 @@
 import React from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import CartItem from "../CartItem/CartItem";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectCartItems } from "../../redux/cart/cart.selectors";
 import { toggleCartHidden } from "../../redux/cart/cart.actions";
 import { createStructuredSelector } from "reselect";
-import { withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import {
   CartDropdownContainer,
   CartItemsContainer,
   EmptyMessageContainer,
 } from "./CartDropdown.styles";
 
-function CartDropdown({ cartItems, history, dispatch }) {
+function CartDropdown() {
+  const cartItems = useSelector(selectCartItems);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   return (
     <CartDropdownContainer>
       <CartItemsContainer>
@@ -35,8 +39,5 @@ function CartDropdown({ cartItems, history, dispatch }) {
     </CartDropdownContainer>
   );
 }
-const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems,
-});
 
-export default withRouter(connect(mapStateToProps)(CartDropdown));
+export default CartDropdown;
