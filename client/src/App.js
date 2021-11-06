@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { GlobalStyle } from "./global.styles";
 import Header from "./Components/Header/Header";
+import Spinner from "./Components/Spinner/Spinner";
 
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { checkUserSession } from "./redux/user/user.actions";
@@ -25,7 +26,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <Switch>
-        <Suspense fallback={<div>...Loading</div>}>
+        <Suspense fallback={<Spinner />}>
           <Route exact path='/' component={Homepage} />
 
           <Route path='/shop' component={ShopPage} />
