@@ -24,9 +24,14 @@ const invertedButtonStyles = css`
 `
 
 const googleSignInStyles = css`
+    display: flex;
+    flex-wrap: wrap;
     background-color: #4285f4;
     color: white;
     border: none;
+    padding: 0 10px;
+    /* font-size: 13px; */
+    /* min-width: 124px; */
         &:hover {
         background-color: #357ae8;
         border: none;
@@ -41,12 +46,12 @@ const getButtonStyles = props => {
 }
 
 export const CustomButtonContainer = styled.button`
-    min-width: 165px;
+    min-width: 124px;
     width: auto;
     height: 50px;
     letter-spacing: 0.5px;
     line-height: 50px;
-    padding: 0 35px 0 35px;
+    padding: 0 35px;
     font-size: 15px;
     text-transform: uppercase;
     font-family: "Open Sans Condensed";
@@ -55,6 +60,10 @@ export const CustomButtonContainer = styled.button`
     display: flex;
     justify-content: center;
     ${getButtonStyles}
+
+    @media screen and (max-width: 800px) {
+        min-width: 124px;
+  }
 
 
 `
